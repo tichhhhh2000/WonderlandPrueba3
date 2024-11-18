@@ -31,6 +31,10 @@ describe('RecuperarPage', () => {
     fixture.detectChanges();
   });
 
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+
   it('debería verificar una respuesta correcta y redirigir', async () => {
     mockServicebd.verificarRespuestaSeguridad.and.returnValue(Promise.resolve(true));
     component.correo = 'test@example.com';
@@ -50,4 +54,5 @@ describe('RecuperarPage', () => {
       queryParams: { correo: 'test@example.com' },
     });
   });
+
 });
