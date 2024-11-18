@@ -1,0 +1,23 @@
+ion-toolbar {
+    background: linear-gradient(134deg, #07d8e2 54.07%, #35e99d 99.24%);
+  }
+  
+  ion-content {
+    --background: var(--ion-background-color, linear-gradient(134deg, #07d8e2 54.07%, #35e99d 99.24%));
+  }
+  
+  ion-card-title {
+    font-size: 30px;
+  }
+  
+  .portada-container {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+  }
+  
+  .portada-img {
+    max-width: 100%;
+    border-radius: 10px;
+  }
+  

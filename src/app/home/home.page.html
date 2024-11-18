@@ -1,0 +1,84 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="mycolor">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title> Inicio </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" #content>
+
+  <div><h1>Wonderland</h1></div> 
+
+  
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" *ngFor="let album of albums" [ngClass]="{ 'desactivado': album.visible === 0 }">
+        <ion-card [ngClass]="{ 'disabled-card': album.visible === 0 }" (click)="album.visible === 1 && irAlbum(album)">
+          <ion-card-header>
+            <ion-thumbnail>
+              <img *ngIf="album.portada_album" [src]="album.portada_album">
+            </ion-thumbnail>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-label>
+              <p>{{ album.nombre_artista }}</p>
+              <h2>{{ album.nombre_album }}</h2>
+              
+              <!-- Mostrar precio y stock solo si el álbum está visible -->
+              <ng-container *ngIf="album.visible === 1; else noDisponible">
+                <p style="font-weight: bold;">{{ album.precio_album | currency:'$':'symbol':'1.0-0' }}</p>
+                <p><strong>¡Solo quedan {{ album.stock }}!</strong></p>
+              </ng-container>
+              
+              <!-- Mostrar mensaje "No disponible" si el álbum está oculto -->
+              <ng-template #noDisponible>
+                <p style="color: red;">No disponible</p>
+              </ng-template>
+              
+            </ion-label>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
+
+
+<ion-footer class="Colorcito">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="3" class="ion-text-center">
+          <ion-button fill="clear" [routerLink]="['/home']" class="footer-button">
+            <ion-icon name="home" style="font-size: 24px;" color="dark"></ion-icon>
+          </ion-button>
+        </ion-col>
+
+        <ion-col size="3" class="ion-text-center">
+          <ion-button fill="clear" [routerLink]="['/buscar']" class="footer-button">
+            <ion-icon name="search" style="font-size: 24px;" color="dark"></ion-icon>
+          </ion-button>
+        </ion-col>
+
+        <ion-col size="3" class="ion-text-center">
+          <ion-button fill="clear" [routerLink]="['/libreria']" class="footer-button">
+            <ion-icon name="heart" style="font-size: 24px;" color="dark"></ion-icon>
+          </ion-button>
+        </ion-col>
+
+        <ion-col size="3" class="ion-text-center">
+          <ion-button fill="clear" [routerLink]="['/carrito']" class="footer-button">
+            <ion-icon name="cart" style="font-size: 24px;" color="dark"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>
+
+<!--VOY A MODOFICAR UN POCO-->

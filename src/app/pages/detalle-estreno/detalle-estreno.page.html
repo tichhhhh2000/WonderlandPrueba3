@@ -1,0 +1,21 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="mycolor">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/estrenos-album"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Álbum Estreno</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card *ngIf="estreno" class="info-card">
+      <div class="portada-container">
+        <img [src]="estreno.imagen" alt="Portada de {{ estreno.album }}" class="portada-img">
+      </div>
+    <ion-card-content>
+      <h2>{{ estreno.album }}</h2>
+      <p>{{ estreno.artista }}</p>
+      <p><strong>¡PRÓXIMAMENTE!</strong></p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

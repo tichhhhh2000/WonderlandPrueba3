@@ -1,0 +1,53 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="mycolor">
+    <ion-buttons slot="start">
+      <ion-back-button
+        defaultHref="/home"
+        icon="arrow-back-outline" 
+        text="" 
+        color="black">
+      </ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+<ion-content [fullscreen]="true">
+  <div><h1>Wonderland</h1></div>
+  <div><h2>Mi Cuenta</h2></div>
+
+  <ion-grid class="profile-grid">
+    <ion-row class="profile-container">
+      <ion-col size="12" size-md="6" class="profile-card">
+        
+        <div class="profile-info">
+          <h3>{{ infoUsuario.usuario }}</h3>
+        </div>
+
+        <div class="profile-photo-wrapper">
+          <img *ngIf="infoUsuario.foto_perfil; else defaultProfile" 
+               [src]="infoUsuario.foto_perfil" 
+               class="profile-picture" 
+               alt="Foto de perfil">
+          <ng-template #defaultProfile>
+            <img src="assets/icon/foto-perfil.jpg" 
+                 alt="Foto por defecto" 
+                 class="profile-picture">
+          </ng-template>
+          <ion-icon class="camera-icon" name="camera" (click)="ingresarImagen()"></ion-icon>
+        </div>
+
+        <div class="profile-info">
+          <p>{{ infoUsuario.correo_usuario }}</p>
+          <p>{{ infoUsuario.direccion }}</p>
+          <ion-button color="secondary" [routerLink]="['/historial-compra']">Mis Compras</ion-button>
+        </div>
+
+        <ion-button color="secondary" expand="block" (click)="irModificarPerfil()" class="edit-button">
+          <ion-icon name="pencil" slot="start"></ion-icon>
+          Modificar Perfil
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<img src="/src/assets/icon/2cool-detalle.jpg" alt="">

@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button  
+        icon="arrow-back-outline" 
+        text="" 
+        color="black"
+        defaultHref="/home">
+      </ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-title size="large">Wonderland</ion-title>  
+  <div><h1>Modificar Álbum</h1></div>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" *ngFor="let album of albums">
+        <ion-card>
+          <ion-card-header>
+            <ion-thumbnail>
+              <img *ngIf="album.portada_album" [src]="album.portada_album">
+            </ion-thumbnail>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-label>
+              <!-- Pre-llenar los campos de entrada con los datos del álbum -->
+              <ion-input [(ngModel)]="album.nombre_album" placeholder="Nombre del álbum"></ion-input>
+              <ion-input [(ngModel)]="album.nombre_artista" placeholder="Artista"></ion-input>
+              <ion-input [(ngModel)]="album.detalle_album" placeholder="Detalles"></ion-input>
+              <ion-input [(ngModel)]="album.precio_album" type="number" placeholder="Precio"></ion-input>
+              <ion-input [(ngModel)]="album.portada_album" placeholder="Portada (URL)"></ion-input>
+  
+              <ion-button color="primary" (click)="validacion(album)">Modificar Álbum</ion-button>
+            </ion-label>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+</ion-content>
+
+<!-- NO MAS COTROL Z -->

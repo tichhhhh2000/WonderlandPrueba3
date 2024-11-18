@@ -1,0 +1,7 @@
+{
+  "name": "wonderland",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

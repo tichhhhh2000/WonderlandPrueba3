@@ -1,0 +1,49 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="mycolor">
+    <ion-title>Boleta de Compra</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="boleta-content">
+  <div class="boleta-container">
+    <h1 class="titulo-wonderland">Wonderland</h1>
+
+    <!-- Resumen de la Compra -->
+    <ion-card class="compra-card">
+      <ion-card-header>
+        <ion-card-title class="compra-title">Resumen de la Compra</ion-card-title>
+      </ion-card-header>
+    
+      <ion-card-content>
+        <p><strong>Usuario:</strong> {{ infoUsuario.usuario }}</p>
+        <p><strong>Correo:</strong> {{ infoUsuario.correo_usuario }}</p>
+        <p><strong>Total de la Compra:</strong> {{ totalCarrito | currency:'$':'symbol':'1.0-0' }}</p>
+      </ion-card-content>
+    
+      <!-- Lista Detallada de Álbumes Comprados -->
+      <ion-card-header>
+        <ion-card-title class="compra-title">Álbumes Comprados</ion-card-title>
+      </ion-card-header>
+    
+      <ion-card-content>
+        <ion-list>
+          <ion-item *ngFor="let album of albumsComprados">
+            <ion-label>
+              <h2>{{ album.nombre_album }}</h2>
+              <p><strong>Artista:</strong> {{ album.nombre_artista }}</p>
+              <p><strong>Cantidad:</strong> {{ album.cantidad }}</p>
+              <p><strong>Precio Unitario:</strong> {{ album.precio_album | currency:'$':'symbol':'1.0-0' }}</p>
+              <p><strong>Subtotal:</strong> {{ album.precio_album * album.cantidad | currency:'$':'symbol':'1.0-0' }}</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+        <p class="agradecimiento">
+          <strong>¡Gracias por su compra! Se le notificará por correo cuando su pedido esté listo para retiro.</strong>
+        </p>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Botón para volver al inicio -->
+    <ion-button expand="full" color="secondary" class="full-width-button" (click)="volverAlInicio()">Volver al Inicio</ion-button>
+  </div>
+</ion-content>

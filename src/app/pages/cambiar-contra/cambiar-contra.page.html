@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="mycolor">
+    <ion-buttons slot="start">
+      <ion-back-button icon="arrow-back-outline" text="" color="black" defaultHref="/perfil"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div><h1>Wonderland</h1></div>
+  <div><h2>Cambiar Contraseña</h2></div>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Contraseña Actual</ion-label>
+        <ion-input type="password" [(ngModel)]="contrasenaActual" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Nueva Contraseña</ion-label>
+        <ion-input type="password" [(ngModel)]="nuevaContrasena" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Confirmar Nueva Contraseña</ion-label>
+        <ion-input type="password" [(ngModel)]="confirmarContrasena" required></ion-input>
+      </ion-item>
+
+      <div class="ion-margin-top">
+        <ion-button color="secondary" expand="block" (click)="cambiarContrasena()">Guardar Contraseña</ion-button>
+      </div>
+    </ion-card-content>
+</ion-content>

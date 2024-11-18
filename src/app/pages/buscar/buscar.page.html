@@ -1,0 +1,80 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="mycolor">
+    <ion-title>Buscar Álbum</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-searchbar 
+    [(ngModel)]="searchTerm"
+    (ionInput)="filtrarAlbums()"
+    placeholder="Buscar por álbum o artista">
+  </ion-searchbar>
+
+  <ion-grid *ngIf="albumsFiltrados.length > 0; else noResults">
+    <ion-row>
+      <ion-col size="6" *ngFor="let album of albumsFiltrados">
+        <ion-card (click)="irAlbum(album)">
+          <ion-card-header>
+            <ion-thumbnail>
+              <img *ngIf="album.portada_album" [src]="album.portada_album">
+            </ion-thumbnail>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-label>
+              <p>{{ album.nombre_artista }}</p>
+              <h2>{{ album.nombre_album }}</h2>
+              <p style="font-weight: bold;">
+                {{ album.precio_album | currency:'$':'symbol':'1.0-0' }}
+              </p>
+            </ion-label>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Mostrar mensaje si no hay resultados -->
+  <ng-template #noResults>
+    <ion-item>
+      <ion-label class="ion-text-center">
+        No se encontró un producto con este nombre.
+      </ion-label>
+    </ion-item>
+  </ng-template>
+</ion-content>
+
+
+
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="3" class="ion-text-center">
+          <ion-button fill="clear" [routerLink]="['/home']" class="footer-button">
+            <ion-icon name="home" style="font-size: 24px;" color="dark"></ion-icon>
+          </ion-button>
+        </ion-col>
+
+        <ion-col size="3" class="ion-text-center">
+          <ion-button fill="clear" [routerLink]="['/buscar']" class="footer-button">
+            <ion-icon name="search" style="font-size: 24px;" color="dark"></ion-icon>
+          </ion-button>
+        </ion-col>
+
+        <ion-col size="3" class="ion-text-center">
+          <ion-button fill="clear" [routerLink]="['/libreria']" class="footer-button">
+            <ion-icon name="heart" style="font-size: 24px;" color="dark"></ion-icon>
+          </ion-button>
+        </ion-col>
+
+        <ion-col size="3" class="ion-text-center">
+          <ion-button fill="clear" [routerLink]="['/carrito']" class="footer-button">
+            <ion-icon name="cart" style="font-size: 24px;" color="dark"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

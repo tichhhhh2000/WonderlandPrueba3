@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar color="mycolor">
+    <ion-buttons slot="start">
+      <ion-back-button  
+        icon="arrow-back-outline" 
+        text="" 
+        color="black"
+        defaultHref="/perfil">
+      </ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div> <h1>Wonderland</h1> </div>
+  <div><h2>Inicio Sesión</h2></div>
+
+  <ion-card *ngIf="historialCompras.length > 0" class="historial-card">
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let compra of historialCompras">
+          <ion-label>
+            <h2>Fecha de Compra {{ compra.fecha_compra }}</h2>
+            <p>Total: {{ compra.total_compra | currency:'$':'symbol':'1.0-0' }}</p>
+            <h3>Detalle de la compra:</h3>
+            <ion-list>
+              <ion-item *ngFor="let detalle of compra.detalle_compra">
+                <p>Álbum: {{ detalle.nombre_album }}</p>
+                <p>Cantidad: {{ detalle.cantidad }}</p>
+                <p>Precio: {{ detalle.precio | currency:'$':'symbol':'1.0-0' }}</p>
+              </ion-item>
+            </ion-list>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="historialCompras.length === 0" class="historial-card">
+    <ion-card-content>
+      <p>No hay compras registradas.</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

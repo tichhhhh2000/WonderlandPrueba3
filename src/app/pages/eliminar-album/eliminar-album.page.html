@@ -1,0 +1,59 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="mycolor">
+    <ion-buttons slot="start">
+      <ion-back-button
+        defaultHref="/administracion"
+        icon="arrow-back-outline"
+        text=""
+        color="black">
+      </ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-title size="large">Wonderland</ion-title>
+  <div><h1>Ocultar Álbum</h1></div>
+
+  <!-- Barra de búsqueda -->
+  <ion-searchbar 
+    [(ngModel)]="searchTerm"
+    (ionInput)="filtrarAlbums()"
+    placeholder="Buscar por álbum o artista">
+  </ion-searchbar>
+
+  <!-- Mostrar los álbumes filtrados o todos si no hay búsqueda activa -->
+  <ion-grid *ngIf="albumsFiltrados.length > 0; else noResults">
+    <ion-row>
+      <ion-col size="6" *ngFor="let album of albumsFiltrados" [ngClass]="{ 'oculto': album.visible === 0 }">
+        <ion-card>
+          <ion-card-header>
+            <ion-thumbnail>
+              <img *ngIf="album.portada_album" [src]="album.portada_album">
+            </ion-thumbnail>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-label>
+              <p>{{ album.nombre_artista }}</p>
+              <h2>{{ album.nombre_album }}</h2>
+              <p style="font-weight: bold;">{{ album.precio_album }}</p>
+
+              <!-- Botón para ocultar o mostrar el álbum -->
+              <ion-button *ngIf="album.visible === 1" color="secondary" (click)="ocultarAlbum(album.id_album)">Ocultar Álbum</ion-button>
+              <ion-button *ngIf="album.visible === 0" color="success" (click)="mostrarAlbum(album.id_album)">Mostrar Álbum</ion-button>
+            </ion-label>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Mostrar mensaje solo si hay un término de búsqueda y no hay resultados -->
+  <ng-template #noResults>
+    <ion-item *ngIf="searchTerm.trim()">
+      <ion-label class="ion-text-center">
+        No se encontró un álbum con este nombre.
+      </ion-label>
+    </ion-item>
+  </ng-template>
+</ion-content>

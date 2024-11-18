@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="mycolor">
+    <ion-title>Historial de Ventas</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home" icon="arrow-back-outline" text="" color="black"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card *ngIf="historialVentas.length > 0" class="historial-card">
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let venta of historialVentas">
+          <ion-thumbnail slot="start" *ngIf="venta.portada_album">
+            <img [src]="venta.portada_album">
+          </ion-thumbnail>
+          <ion-label>
+            <h2>{{ venta.nombre_album }} - {{ venta.nombre_artista }}</h2>
+            <p>Comprador: {{ venta.comprador }}</p>
+            <p>Cantidad: {{ venta.cantidad }}</p>
+            <p>Precio: {{ venta.precio_album | currency:'$':'symbol':'1.0-0' }}</p>
+            <p>Total de la Venta: {{ venta.total_venta | currency:'$':'symbol':'1.0-0' }}</p>
+            <p>Fecha de Venta: {{ venta.fecha_venta }}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="historialVentas.length === 0" class="historial-card">
+    <ion-card-content>
+      <p>No hay ventas registradas.</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,38 @@
+ion-toolbar {
+  background: linear-gradient(134deg, #07d8e2 54.07%, #35e99d 99.24%);
+}
+
+  ion-content {
+    --background: var(--ion-background-color, linear-gradient(134deg, #07d8e2 54.07%, #35e99d 99.24%));
+    
+  }
+
+  ion-title {
+    font-size: 75px;
+    font-family: 'Great vibes', cursive; /* Aplica la fuente 'Pacifico' */
+    color: white;
+    padding-top: 30px; /* Ajusta el padding superior */
+    margin-top: 50px; /* Ajusta este valor según necesites */
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 30px;
+    font-family: 'Roboto Condensed', cursive; /* Aplica la fuente 'Pacifico' */
+    color: black;
+    padding-top: 0px; /* Ajusta el padding superior */
+    margin-top: 0px; /* Ajusta este valor según necesites */
+    text-align: center;
+  }
+
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente en el contenedor */
+    align-items: center; /* Centra horizontalmente */
+    height: 50%; /* Ocupa toda la altura disponible del contenedor */
+    background: #07d8e2 54.07%;
+  }
+  
+
+  

@@ -1,0 +1,43 @@
+
+
+  @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Pacifico&display=swap');
+  
+  h1 {
+    font-size: 75px;
+    font-family: 'Great vibes', cursive; 
+    color: white;
+    padding-top: 30px; /* Ajusta el padding superior */
+    margin-top: 30px; /* Ajusta este valor según necesites */
+    text-align: center;
+  }
+
+  ion-content {
+    --background: linear-gradient(134deg, #07d8e2 54.07%, #35e99d 99.24%);
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  
+  .titulo-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  ion-toolbar {
+    background: linear-gradient(134deg, #07d8e2 54.07%, #35e99d 99.24%);
+    --border-color: transparent;
+  }
+  
+  .estreno-card {
+    height: 100%; /* Ajusta para mantener las cards alineadas */
+  }
+  
+  .estreno-thumbnail {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+  }
+  

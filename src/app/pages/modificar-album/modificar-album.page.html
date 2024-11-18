@@ -1,0 +1,67 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="mycolor">
+    <ion-buttons slot="start">
+      <ion-back-button
+        defaultHref="/administracion"
+        icon="arrow-back-outline"
+        text=""
+        color="black">
+      </ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-title size="large">Wonderland</ion-title>
+  <div><h1>Modificar Álbum</h1></div>
+
+  <!-- Barra de búsqueda -->
+  <ion-searchbar 
+    [(ngModel)]="searchTerm"
+    (ionInput)="filtrarAlbums()"
+    placeholder="Buscar por álbum o artista">
+  </ion-searchbar>
+
+  <ion-grid *ngIf="albumsFiltrados.length > 0; else noResults">
+    <ion-row>
+      <ion-col size="12" *ngFor="let album of albumsFiltrados">
+        <ion-card>
+          <!-- Imagen del álbum -->
+          <ion-card-header class="header-album">
+            <ion-img class="imagen-album" *ngIf="album.portada_album" [src]="album.portada_album"></ion-img>
+            <ion-img class="imagen-album" *ngIf="portadaAlbum" [src]="portadaAlbum"></ion-img>
+          </ion-card-header>
+
+          <ion-card-content>
+            <ion-label>
+              <ion-input [(ngModel)]="album.nombre_artista" placeholder="Artista"></ion-input>
+
+              <ion-input [(ngModel)]="album.nombre_album" placeholder="Nombre del álbum"></ion-input>
+
+              <ion-item>
+                <ion-label position="floating">Stock</ion-label>
+                <ion-input type="number" [(ngModel)]="album.stock"></ion-input>
+              </ion-item>
+
+              <ion-input [(ngModel)]="album.precio_album" type="number" placeholder="Precio"></ion-input>
+
+              <ion-input [(ngModel)]="album.detalle_album" placeholder="Detalles"></ion-input>
+              
+              <ion-button color="light" (click)="ingresarImagen(album)">Ingresar Foto</ion-button>
+              <ion-button color="primary" (click)="validacion(album)">Modificar Álbum</ion-button>
+            </ion-label>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Mostrar mensaje si no hay resultados -->
+  <ng-template #noResults>
+    <ion-item>
+      <ion-label class="ion-text-center">
+        No se encontró un álbum con este nombre.
+      </ion-label>
+    </ion-item>
+  </ng-template>
+</ion-content>

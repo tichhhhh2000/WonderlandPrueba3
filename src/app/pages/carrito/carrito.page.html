@@ -1,0 +1,103 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="mycolor">
+    <ion-buttons slot="start">
+      <ion-menu-button>
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-title> Carrito </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <ng-container *ngIf="listaCarrito.length === 0; else carritoLleno">
+    <div class="empty-cart-container">
+      <ion-icon name="cart-outline" class="empty-cart-icon"></ion-icon>
+      <h2 class="empty-cart-title">Tu bolsa está vacía</h2>
+      <p class="empty-cart-text">Agrega algunos álbumes para comenzar tu compra.</p>
+      <ion-button fill="solid" color="secondary" (click)="irHome()">
+        Volver al Home
+      </ion-button>
+    </div>
+  </ng-container>
+
+  <ng-template #carritoLleno>
+    <ion-list>
+      <ion-item-sliding *ngFor="let album of listaCarrito" #slidingItem>
+        <ion-item>
+          <ion-thumbnail slot="start" class="album-thumbnail">
+            <img *ngIf="album.portada_album" [src]="album.portada_album">
+          </ion-thumbnail>
+
+          <ion-label>
+            <h2 class="titulo-album">{{ album.nombre_album }}</h2>
+            <p class="artista-album">{{ album.nombre_artista }}</p>
+            <p class="precio-album">{{ album.precio_album }}</p>
+          </ion-label>
+
+          <div class="quantity-container">
+            <ion-icon name="remove-circle" class="quantity-icon" (click)="restar(album)"></ion-icon>
+            <div class="quantity-display">{{ album.cantidad }}</div>
+            <ion-icon name="add-circle" class="quantity-icon" (click)="sumar(album)"></ion-icon>
+          </div>
+        </ion-item>
+
+        <ion-item-options side="end">
+          <ion-item-option color="danger" (click)="eliminarCarrito(album); slidingItem.close()">Borrar</ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </ng-template>
+</ion-content>
+
+
+
+<!-- FOOTER -->
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-row class="ion-justify-content-between ion-align-items-center">
+      <ion-col size="6" class="ion-text-start">
+        <h2 class="total-carrito">{{ totalCarrito | currency:'$':'symbol':'1.0-0' }}</h2>
+      </ion-col>
+      <ion-col size="6" class="ion-text-end">
+        <ion-button 
+          color="secondary" 
+          (click)="aceptarCompra()" 
+          [disabled]="listaCarrito.length === 0">
+            Comprar
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="3" class="ion-text-center">
+          <ion-button fill="clear" [routerLink]="['/home']" class="footer-button">
+            <ion-icon name="home" style="font-size: 24px;" color="dark"></ion-icon>
+          </ion-button>
+        </ion-col>
+
+        <ion-col size="3" class="ion-text-center">
+          <ion-button fill="clear" [routerLink]="['/buscar']" class="footer-button">
+            <ion-icon name="search" style="font-size: 24px;" color="dark"></ion-icon>
+          </ion-button>
+        </ion-col>
+
+        <ion-col size="3" class="ion-text-center">
+          <ion-button fill="clear" [routerLink]="['/libreria']" class="footer-button">
+            <ion-icon name="heart" style="font-size: 24px;" color="dark"></ion-icon>
+          </ion-button>
+        </ion-col>
+
+        <ion-col size="3" class="ion-text-center">
+          <ion-button fill="clear" [routerLink]="['/carrito']" class="footer-button">
+            <ion-icon name="cart" style="font-size: 24px;" color="dark"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

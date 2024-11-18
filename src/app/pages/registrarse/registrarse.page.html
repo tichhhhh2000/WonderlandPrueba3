@@ -1,0 +1,50 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="mycolor">
+    <ion-buttons slot="start">
+      <ion-back-button  
+        icon="arrow-back-outline" 
+        text="" 
+        color="black"
+        defaultHref="/login">
+      </ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" >
+
+  <div> <h1>Wonderland</h1> </div>
+  <div><h2>Registrarse</h2></div>
+
+  <form class="container">
+    <ion-item>
+      <ion-input label="Usuario" labelPlacement="floating" placeholder="Ingrese usuario" [(ngModel)]="username" name="usuario"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Correo" type="email" labelPlacement="floating" placeholder="Ingrese email" [(ngModel)]="email" name="Correo"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Contraseña" type="password" labelPlacement="floating" placeholder="Ingrese contraseña" [(ngModel)]="password" name="contra"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Repetir Contraseña" type="password" labelPlacement="floating" placeholder="Repita su contraseña" [(ngModel)]="password2" name="contraR"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Dirección" labelPlacement="floating" placeholder="Dirección" [(ngModel)]="direction" name="direc"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>¿Cuál es el apellido de tu abuelo?</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Respuesta" labelPlacement="floating" placeholder="Ingrese su respuesta" [(ngModel)]="respuestaSeguridad" name="respuesta"></ion-input>
+    </ion-item>
+    <ion-button (click)="validacion()" color="secondary">Registrarse</ion-button>
+    <div class="validacion">
+      <p *ngIf="correoVal">- Ingrese un correo válido</p>
+      <p *ngIf="contraVal">- La contraseña debe tener al menos una letra en mayúscula</p>
+      <p *ngIf="contraVal">- La contraseña debe tener un caracter especial (!,.$#&/=-_)</p>
+      <p *ngIf="contraVal">- La contraseña debe tener al menos dos números</p>
+      <p *ngIf="contraIgual">- Las contraseñas no coinciden</p>
+    </div>
+  </form>
+</ion-content>

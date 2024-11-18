@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar color="mycolor">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/perfil"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div><h1>Wonderland</h1></div>
+  <div><h2>Modificar Perfil</h2></div>
+
+  <form class="container" (submit)="modificarPerfil()">
+    <ion-item>
+      <ion-input
+        label="Usuario"
+        labelPlacement="floating"
+        [(ngModel)]="usuario"
+        name="usuario"
+        required>
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input
+        label="Correo"
+        labelPlacement="floating"
+        [value]="correo"
+        readonly>
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input
+        label="Dirección"
+        labelPlacement="floating"
+        [(ngModel)]="direccion"
+        name="direccion"
+        required>
+      </ion-input>
+    </ion-item>
+
+    <ion-button expand="block" type="submit" color="secondary">Guardar Cambios</ion-button>
+    <ion-button expand="block" color="secondary" (click)="verificarPreguntaSeguridad()">Cambiar Contraseña</ion-button>
+
+  </form>
+</ion-content>
+
+<!--ESTA PAGINA ESTA LISTA-->

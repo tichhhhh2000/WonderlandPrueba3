@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar color="mycolor">
+    <ion-buttons slot="start">
+      <ion-back-button  
+        icon="arrow-back-outline" 
+        text="" 
+        color="black"
+        defaultHref="/home">
+      </ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card>
+      <ion-img [src]="album.portada"></ion-img>
+      <ion-card-header>
+
+        <ion-card-title>
+          {{album.nombre}}
+        </ion-card-title>
+
+        <ion-card-content>
+          <p>{{album.artista}}</p>
+        </ion-card-content>
+
+        <ion-card-content>
+          <p>{{ album.genero }}</p>
+        </ion-card-content>
+        
+        <ion-card-content>
+          <p>{{album.precio}}</p>
+        </ion-card-content>
+      
+        <ion-button  (click)="aceptarEliminar()" shape="round" color="danger" >Eliminar del Carrito</ion-button>
+
+      </ion-card-header>
+    </ion-card>
+  </ion-card>
+</ion-content>
+
+<!-- NO MAS COTROL Z -->

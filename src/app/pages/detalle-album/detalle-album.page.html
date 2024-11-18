@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar color="mycolor">
+    <ion-buttons slot="start">
+      <ion-back-button  
+        icon="arrow-back-outline" 
+        text="" 
+        color="black"
+        defaultHref="/home">
+      </ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="info-card">
+    <div class="portada-container">
+      <ion-img *ngIf="album?.portada_album" [src]="album?.portada_album" class="portada-img"></ion-img>
+    </div>
+    <ion-card-content>
+      <p>{{ album?.nombre_artista }} </p>
+      <h6>{{ album?.nombre_album }}</h6>
+      <p><strong>Stock disponible:</strong> {{ album.stock }}</p>
+      <p>{{ album?.precio_album | currency:'$':'symbol':'1.0-0' }}</p>
+      <p>{{ album?.detalle_album }}</p>
+      
+      <div class="quantity-container">
+        <ion-icon 
+          name="remove-circle" 
+          class="quantity-icon" 
+          (click)="restar()">
+        </ion-icon>
+      
+        <div class="quantity-display">{{ cantidad }}</div>
+      
+        <ion-icon 
+          name="add-circle" 
+          class="quantity-icon" 
+          (click)="sumar()">
+        </ion-icon>
+      </div>
+
+      <ion-button (click)="agregarAlbum()" shape="round" color="secondary">Añandir al Carrito</ion-button>
+      <ion-button (click)="guardarAlbum()" shape="round" color="secondary">
+        {{ esFavorito ? 'Quitar de Favoritos' : 'Añadir a Favoritos' }}
+      </ion-button>
+      
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+
+
+<!-- NO MAS COTROL Z -->
+<!-- SI TE ARREPIENTES BORRA HASTA ACA-->
+ <!--ULTIMA VEZ INTENTANDO HACER EL STOCK-->

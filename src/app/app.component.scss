@@ -1,0 +1,44 @@
+ion-content {
+    --background: linear-gradient(134deg, #07d8e2 54.07%, #35e99d 99.24%); 
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Pacifico&display=swap');
+
+ion-title {
+    font-family: 'Great vibes', cursive;
+    color: #07d8e2;
+    font-size: 50px;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-top: 50px; /* Mantiene el margen superior */
+    margin-bottom: 0px; /* Reduce el margen inferior */
+  }
+  
+  ion-note {
+    display: inline-block;
+    font-size: 18px;
+    color: var(--ion-color-medium-shade);
+    text-align: center; /* Centra el texto horizontalmente */
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-top: 0px; /* Reduce el margen superior */
+    margin-bottom: 20px;
+    line-height: 24px;
+  }
+
+  ion-content {
+    --padding-start: 8px;
+    --padding-end: 8px;
+    --padding-top: 20px;
+    --padding-bottom: 20px;
+  }
+
+  .logout-button-container {
+    margin-top: 20px; /* Ajusta el espacio superior según sea necesario */
+    display: flex;
+    justify-content: center; /* Centrar el botón */
+  }
+  
+
+

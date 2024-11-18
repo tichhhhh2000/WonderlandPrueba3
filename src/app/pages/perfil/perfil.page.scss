@@ -1,0 +1,108 @@
+ion-toolbar {
+  background: linear-gradient(134deg, #07d8e2 54.07%, #35e99d 99.24%);
+}
+
+ion-content {
+  --background: var(--ion-background-color, linear-gradient(134deg, #07d8e2 54.07%, #35e99d 99.24%));
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Pacifico&display=swap');
+
+h1 {
+  font-size: 75px; /* Reducción del tamaño */
+  font-family: 'Great Vibes', cursive; 
+  color: white;
+  padding-top: 20px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 30px;
+  font-family: 'Roboto Condensed', cursive;
+  color: black;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.profile-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.profile-container {
+  display: flex;
+  justify-content: center;
+}
+
+.profile-card {
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  padding: 15px;
+  width: 100%;
+  max-width: 350px;
+  text-align: center;
+}
+
+.profile-photo-wrapper {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.profile-picture {
+  border-radius: 50%;
+  height: 180px; /* Reducción del tamaño */
+  width: 180px;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.camera-icon {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  background-color: white;
+  border-radius: 50%;
+  padding: 8px;
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.profile-info h3 {
+  font-size: 20px;
+  color: #333;
+  font-weight: bold;
+}
+
+.profile-info p {
+  font-size: 14px;
+  color: #666;
+  margin: 3px 0;
+}
+
+.edit-button {
+  margin-top: 15px;
+  background-color: #07d8e2;
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 8px 12px;
+}
+
+@media (min-width: 768px) {
+  .profile-card {
+    width: 80%;
+  }
+}
+
+.header-album .imagen-album {
+  width: 150px; // Ajusta según el tamaño que desees
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}

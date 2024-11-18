@@ -1,0 +1,34 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="mycolor">
+    <ion-buttons slot="start">
+      <ion-back-button icon="arrow-back-outline" text="" color="black" defaultHref="/login"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div>
+    <h1>Wonderland</h1>
+  </div>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Recuperar Contraseña</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Correo Electrónico</ion-label>
+        <ion-input type="email" [(ngModel)]="correo" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">¿Cuál es el apellido de tu abuelo?</ion-label>
+        <ion-input type="text" [(ngModel)]="respuesta" required></ion-input>
+      </ion-item>
+
+      <div class="ion-margin-top">
+        <ion-button color="secondary" expand="block" (click)="verificarRespuesta()">Verificar Respuesta</ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

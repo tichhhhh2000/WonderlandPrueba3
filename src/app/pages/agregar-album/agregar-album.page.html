@@ -1,0 +1,58 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="mycolor">
+    <ion-buttons slot="start">
+      <ion-back-button
+        defaultHref="/administracion"
+        icon="arrow-back-outline" 
+        text="" 
+        color="black">
+      </ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-title size="large">
+    <span class="gradient-text">Wonderland</span>
+  </ion-title>
+  <div><h1>Añadir Álbum</h1></div>
+
+  
+  
+  <form class="container">
+
+    <!-- Muestra la imagen seleccionada si existe en portadaAlbum -->
+  <ion-card-header class="header-album">
+    <ion-img class="imagen-album" *ngIf="portadaAlbum" [src]="portadaAlbum"></ion-img>
+  </ion-card-header>
+    
+    <ion-item>
+      <ion-input label="Nombre Artista" labelPlacement="floating" placeholder="Nombre del Artista" [(ngModel)]="nombreArtista" name="artista"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Nombre Álbum" labelPlacement="floating" placeholder="Nombre del Álbum" [(ngModel)]="nombreAlbum" name="album"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Stock</ion-label>
+      <ion-input type="number" [(ngModel)]="stock"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Precio Álbum" labelPlacement="floating" type="number" placeholder="Precio" [(ngModel)]="precio" name="precio"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Detalles Álbum" labelPlacement="floating" placeholder="Detalles del Álbum" [(ngModel)]="detalleAlbum" name="detalles"></ion-input>
+    </ion-item>
+
+
+    <ion-button color="light" (click)="ingresarImagen()">Ingresar Foto <ion-icon slot="end" name="image-outline"></ion-icon></ion-button>
+    <ion-button color="secondary" expand="block" (click)="validacion()">Añadir Álbum</ion-button>
+  </form>
+  
+</ion-content>
+
+<!-- NO MAS COTROL Z -->
+ <!--ULTIMA VEZ INTENTANDO HACER EL STOCK-->

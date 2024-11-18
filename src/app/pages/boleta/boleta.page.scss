@@ -1,0 +1,64 @@
+ion-toolbar {
+  background: linear-gradient(134deg, #07d8e2 54.07%, #35e99d 99.24%);
+}
+
+ion-content {
+  --background: linear-gradient(134deg, #07d8e2 54.07%, #35e99d 99.24%);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Pacifico&display=swap');
+
+#container {
+  padding-top: 30px;
+}
+
+.titulo-wonderland {
+  font-size: 75px;
+  font-family: 'Great Vibes', cursive;
+  color: #07d8e2;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.boleta-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 16px;
+  box-sizing: border-box;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  max-height: 90vh;
+}
+
+.compra-card {
+  margin-bottom: 16px;
+}
+
+.compra-title {
+  font-weight: bold;
+  color: black;
+}
+
+.full-width-button {
+  margin-top: 16px;
+  width: 100%;
+}
+
+.agradecimiento {
+  text-align: center;
+  margin-top: 20px;
+  font-style: italic;
+}
+
+/* Estilo para la barra de desplazamiento */
+.boleta-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.boleta-container::-webkit-scrollbar-thumb {
+  background-color: black;
+  border-radius: 10px;
+}

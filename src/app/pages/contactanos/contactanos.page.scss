@@ -1,0 +1,80 @@
+ion-content {
+  --background: linear-gradient(134deg, #07d8e2 54.07%, #35e99d 99.24%);
+  
+}
+
+ion-toolbar {
+  background: linear-gradient(134deg, #07d8e2 54.07%, #35e99d 99.24%);
+  --border-color: transparent;
+}
+
+  @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Pacifico&display=swap');
+  
+  h1 {
+    font-size: 75px;
+    font-family: 'Great vibes', cursive; 
+    color: white;
+    padding-top: 30px; /* Ajusta el padding superior */
+    margin-top: 30px; /* Ajusta este valor según necesites */
+    text-align: center;
+  }
+  
+  @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Pacifico&family=Playwrite+HR:wght@100..400&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+ 
+  ////////
+  .about-us-container {
+    background-color: #f4f4f4; /* Color de fondo suave */
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+    width: 80%;
+    text-align: center;
+  }
+  
+  .about-us-container h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  
+  .about-us-container p {
+    color: #555;
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  /////  
+  .contact-container {
+    background-color: #f4f4f4; /* Color de fondo igual que la sección de "Sobre Nosotros" */
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+    width: 80%;
+    text-align: center;
+  }
+  
+  .contact-container h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  
+  .contact-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+  }
+  
+  .custom-icon {
+    font-size: 24px;
+    color: #333; /* Misma colorimetría de texto */
+    margin-right: 10px;
+  }
+  
+  ion-text {
+    color: #555;
+    font-size: 18px;
+  }
+  
